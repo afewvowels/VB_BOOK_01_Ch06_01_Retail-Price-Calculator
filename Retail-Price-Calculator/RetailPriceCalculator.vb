@@ -17,14 +17,14 @@ Public Class RetailPriceCalculator
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Exclamation)
             ' #2. Check that tbxWholesaleCost contains a numeric value
-        ElseIf Not Decimal.TryParse(tbxWholesaleCost.Text, decTemp) Then
-            MessageBox.Show("Please use a number for the wholesale cost",
+        ElseIf Not Decimal.TryParse(tbxWholesaleCost.Text, decTemp) Or Decimal.Parse(tbxWholesaleCost.Text) <= 0 Then
+            MessageBox.Show("Please use a positive number for the wholesale cost",
                 "Improperly Formatted Data Error",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Exclamation)
             ' #3. Check that tbxMarkup.Text contains a numeric value
-        ElseIf Not Decimal.TryParse(tbxMarkup.Text, decTemp) Then
-            MessageBox.Show("Please use a number for the retail markup",
+        ElseIf Not Decimal.TryParse(tbxMarkup.Text, decTemp) Or Decimal.Parse(tbxMarkup.Text) <= 0 Then
+            MessageBox.Show("Please use a positive number for the retail markup",
                 "Improperly Formatted Data Error",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Exclamation)
